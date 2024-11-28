@@ -3,6 +3,7 @@ import { StyleSheet, Text, TextInput, Button, View, Alert } from 'react-native';
 import { useRouter } from 'expo-router'; // Import useRouter
 import PhoneInput from 'react-native-phone-number-input';
 
+
 const RegisterPage: React.FC = () => {
   const router = useRouter(); // Use router for navigation
 

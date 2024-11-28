@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, TouchableOpacity, Alert, ScrollView, RefreshControl } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
+import { useFocusEffect } from '@react-navigation/native';
 
 const ProfileTab = () => {
   const [userData, setUserData] = useState<any>(null);
@@ -39,9 +40,11 @@ const ProfileTab = () => {
     }
   };
 
-  useEffect(() => {
+  useFocusEffect(
+    useCallback(() => {
     fetchUserData();
-  }, []);
+  }, [])
+);
 
   const onRefresh = () => {
     setIsRefreshing(true);
